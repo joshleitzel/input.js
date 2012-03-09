@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+  <title>Example - Application</title>
+  
+  <script type="text/javascript" src="lib/jquery.js"></script>
+  <script type="text/javascript" src="lib/jquery.hotkeys.js"></script>
+  <script type="text/javascript" src="../lib/input.js"></script>
+  
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var name = $('#name');
+      var address = $('#address');
+      var city = $('#city');
+      var state = $('#state');
+      var zip = $('#zip');
+      var telephone = $('#telephone');
+      var email = $('#email');
+      
+      var contactForm = new Input.Form($('form'));
+      contactForm.field(name, {
+        type: 'email'
+      });
+      
+    });
+  </script>
+</head>
+<body>
+  <form>
+    <input id="name" type="text" />
+    <textarea id="address"></textarea>
+    <input id="city" type="text" />
+    <select id="state">
+      <option value="pa">PA</option>
+    </select>
+    <input id="zip" type="text" />
+    <input id="telephone" type="text" />
+    <input id="email" type="text" />
+  </form>
+</body>
