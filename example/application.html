@@ -2,6 +2,8 @@
 <head>
   <title>Example - Application</title>
   
+  <link rel="stylesheet" href="application.css" />
+  
   <script type="text/javascript" src="lib/jquery.js"></script>
   <script type="text/javascript" src="lib/jquery.hotkeys.js"></script>
   <script type="text/javascript" src="../lib/input.js"></script>
@@ -14,11 +16,34 @@
       var state = $('#state');
       var zip = $('#zip');
       var telephone = $('#telephone');
+      var age = $('#age');
       var email = $('#email');
       
-      var contactForm = new Input.Form($('form'));
+      var contactForm = new Input.Form($('form'), {
+        preventInvalidInput: true
+      });
       contactForm.field(name, {
-        type: 'email'
+        type: 'alpha',
+        allowed: ' '
+      });
+      contactForm.field(zip, {
+        type: 'integer',
+        size: 5
+      });
+      contactForm.field(city, {
+        lengthRange: [5, 10],
+        validateInline: true
+      });
+      contactForm.field(telephone, {
+        type: 'integer',
+        cajole: '(XXX) XXX-XXXX'
+      });
+      contactForm.field(age, {
+        type: 'integer',
+        range: [13, 110]
+      });
+      contactForm.error(function(field, error) {
+        $(':input[id=' + field + ']').closest('tr').find('.status').text(error);
       });
       
     });
@@ -26,14 +51,114 @@
 </head>
 <body>
   <form>
-    <input id="name" type="text" />
-    <textarea id="address"></textarea>
-    <input id="city" type="text" />
-    <select id="state">
-      <option value="pa">PA</option>
-    </select>
-    <input id="zip" type="text" />
-    <input id="telephone" type="text" />
-    <input id="email" type="text" />
+    <table>
+      <tr>
+        <th>Rules</th>
+        <th>Try</th>
+        <th>Demo</th>
+        <th>Status</th>
+      </tr>
+      
+      <tr>
+        <td class="rules">
+          <span class="key">required</span> <span class="value literal">true</span>,
+          <br /><span class="key">type</span> <span class="value">'alpha'</span>,
+          <br /><span class="key">allowed</span> <span class="value">' '</span>
+        </td>
+        <td class="try">
+          <ul>
+            <li class="accepted">John Smith</li>
+            <li class="accepted">Richard II</li>
+            <li class="denied">Henry 7</li>
+          </ul>
+        </td>
+        <td class="demo">
+          <label for="name">Name</label>
+          <input id="name" type="text" />
+        </td>
+        <td class="status"></td>
+      </tr>
+      
+      <tr class="even">
+        <td class="rules"></td>
+        <td class="try"></td>
+        <td class="demo">
+          <label for="address">Address</label>
+          <textarea id="address"></textarea>
+        </td>
+        <td class="status"></td>
+      </tr>
+      
+      <tr>
+        <td class="rules">
+          <br /><span class="key">lengthRange</span> <span class="value literal">[5-10]</span>,
+          <br /><span class="key">validateInline</span> <span class="value literal">true</span>
+        </td>
+        <td class="try"></td>
+        <td class="demo">
+          <label for="city">City</label>
+          <input id="city" type="text" />
+        </td>
+        <td class="status"></td>
+      </tr>
+      
+      <tr class="even">
+        <td class="rules"></td>
+        <td class="try"></td>
+        <td class="demo">
+          <label for="state">State</label>
+          <select id="state">
+            <option value="pa">PA</option>
+          </select>
+        </td>
+        <td class="status"></td>
+      </tr>
+      
+      <tr>
+        <td class="rules">
+          <span class="key">type</span> <span class="value">'integer'</span>,
+          <br /><span class="key">size</span> <span class="value literal">5</span>
+        </td>
+        <td class="try"></td>
+        <td class="demo">
+          <label for="zip">ZIP</label>
+          <input id="zip" type="text" />
+        </td>
+        <td class="status"></td>
+      </tr>
+      
+      <tr class="even">
+        <td class="rules"></td>
+        <td class="try"></td>
+        <td class="demo">
+          <label for="telephone">Telephone</label>
+          <input id="telephone" type="text" />
+        </td>
+        <td class="status"></td>
+      </tr>
+      
+      <tr>
+        <td class="rules">
+          <br /><span class="key">type</span> <span class="value">'integer'</span>,
+          <br /><span class="key">range</span> <span class="value literal">[13, 110]</span>
+        </td>
+        <td class="try"></td>
+        <td class="demo">
+          <label for="age">Age</label>
+          <input id="age" type="text" />
+        </td>
+        <td class="status"></td>
+      </tr>
+            
+      <tr class="even">
+        <td class="rules"></td>
+        <td class="try"></td>
+        <td class="demo">
+          <label for="email">Email</label>
+          <input id="email" type="text" />
+        </td>
+        <td class="status"></td>
+      </tr>
+    </table>
   </form>
 </body>

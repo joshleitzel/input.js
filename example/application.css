@@ -1,0 +1,163 @@
+/* 
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+/* Custom */
+html, input, textarea {
+  font: 13px 'Palatino Linotype', 'Book Antiqua', Palatino, FreeSerif, serif;
+}
+form {
+  margin: 1em auto;
+  width: 900px;
+}
+form input[type=text], textarea {
+  box-shadow: 1px 1px 10px #eee;
+  border: 1px outset #eee;
+  outline: none;
+  padding: 0.3em 0.5em;
+}
+label {
+  display: block;
+}
+
+table {
+  width: 100%;
+}
+tr {
+  border-bottom: 1px solid #eee;
+}
+th {
+  font: 120% 'Helvetica Neue', helvetica;
+  font-weight: bold;
+  padding-bottom: 1em;
+}
+th, td {
+  padding: 1em;
+  text-align: left;
+}
+td.rules {
+  font-family: 'Courier New', 'courier', fixed-width;
+  width: 200px;
+}
+td.rules .key {
+  font-weight: bold;
+  color: purple;
+}
+td.rules .key:after {
+  content: ':';
+}
+td.rules .value {
+  color: green;
+}
+td.rules .value.literal {
+  color: blue;
+}
+td.try ul {
+  list-style: none;
+  padding: 0;
+}
+td.try li.accepted {
+  color: darkgreen;
+}
+td.try li.denied {
+  color: darkred;
+}
